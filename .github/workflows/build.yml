@@ -1,0 +1,32 @@
+name: Build unsigned Windows portable app
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Publish portable x64 app (unsigned)
+        shell: pwsh
+        run: |
+          dotnet publish Timerki/Timerki.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:EnableCompressionInSingleFile=true -p:ContinuousIntegrationBuild=true -o artifacts/portable
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Copy-Item LICENSE,README.md,CODE_SIGNING.md artifacts/portable/
+          'UNSIGNED BUILD - not yet signed by SignPath Foundation.' | Set-Content artifacts/portable/SIGNING-STATUS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Timerki-windows-x64-unsigned
+          path: artifacts/portable/
+          if-no-files-found: error

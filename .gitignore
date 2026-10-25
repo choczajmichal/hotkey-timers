@@ -1,0 +1,11 @@
+**/bin/
+**/obj/
+gotowy-exe/
+artifacts/
+.vs/
+*.user
+*.pfx
+*.p12
+*.key
+settings.json
+Sounds/
