@@ -3,7 +3,8 @@
 ## Status
 
 No production code-signing service has been enabled. No release is currently
-signed by SignPath Foundation. The project has not yet submitted its application.
+signed by SignPath Foundation. The application was submitted on 25 October 2026;
+the form confirmed receipt. Approval is pending and has not been granted.
 The build workflow intentionally produces unsigned artifacts only.
 
 The planned service, subject to approval, is:

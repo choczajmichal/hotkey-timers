@@ -55,6 +55,6 @@ gra lub jej system zabezpieczeń mogą ograniczyć działanie skrótów.
 
 ## Code signing policy
 
-**Status: projekt przygotowywany do zgłoszenia; brak akceptacji SignPath i brak podpisanych wydań.**
+**Status: zgłoszenie wysłane do SignPath 25 października 2026; oczekiwanie na decyzję, brak podpisanych wydań.**
 Szczegóły: [polityka podpisywania](CODE_SIGNING.md).
 Niepodpisane EXE może być blokowane przez Inteligentną kontrolę aplikacji.
